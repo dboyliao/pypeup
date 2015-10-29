@@ -1,0 +1,10 @@
+## Mac ##
+.DS_Store
+
+## python ##
+*.pyc
+
+## develop ##
+dev
+temp
+
