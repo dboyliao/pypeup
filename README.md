@@ -23,7 +23,7 @@ def fun1(data, x):
     """
     return [a + x for a in data]
 
-def fun2(data, ind)
+def fun2(data, ind):
     """
     ind: <integer>
     data: <list>
@@ -37,7 +37,7 @@ my_pipe = MyPipe([1, 2, 3, 4, 5])
 my_pipe.register(fun1)      # Use register method to add any method you like 
 my_pipe.register(fun2)      # for your data.
 
-my_pipe.fun1(1).fun2(2).fun2(1).fun1(3) # Pipe the function up at your wish
+my_pipe.fun1(1).fun2(3).fun2(2).fun1(3) # Pipe the function up at your wish
 my_pipe.data
 # >>> [5, 6]
 ```
@@ -54,7 +54,7 @@ class MyPipe2(DataPipe):
         return self.data + x
 
     def sub(self, x):
-        reuturn self.data - x
+        return self.data - x
 
     def mul(self, x):
         return self.data * x
