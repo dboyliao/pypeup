@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-__all__ = ['_return_copy']
+__all__ = ['_return_self']
 
 from functools import wraps
 import re
