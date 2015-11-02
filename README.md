@@ -4,16 +4,18 @@ This is a simple python module to help you to build a data pipe in python.
 
 ## First Glance
 
-Suppose you have a bunch of functions written before dealing with data with same structure (e.g they are all `array`, `integer`, ...etc) and you want to pipe them up for complex computation, `pypipe` is at your service.
+Suppose you have a bunch of functions written before dealing with data with same structure (e.g they are all `array`, `integer`, ...etc) and you want to pipe them up for complex computations, `pypipe` is at your service.
 
 With `pypipe`, you can write something like this:
 
 ```{python}
 from pypipe import DataPipe
 
-# Note that these two funtion all return the same data structure.
-# This is the only requirement using pypipe.
+# Note that these two funtion all return the same data structure and their
+# first argument are all data.
+# These are the only requirements for using pypipe.
 # In this example, the data are all of type list.
+
 def fun1(data, x):
     """
     x: <number>
