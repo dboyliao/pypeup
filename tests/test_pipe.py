@@ -1,4 +1,4 @@
-from pypipe import DataPipe
+from pypeup import DataPipe
 
 class MyPipe(DataPipe):
 
