@@ -1,15 +1,15 @@
-# Piping in Python
+# pypeup - Piping Up with Python
 
 This is a simple python module to help you to build a data pipe in python.
 
 ## First Glance
 
-Suppose you have a bunch of functions dealing with data of the same structure (e.g they are all `array`, `integer`, ...etc) and you want to pipe them up for complex computations, `pypipe` is here at your service.
+Suppose you have a bunch of functions dealing with data of the same structure (e.g they are all `array`, `integer`, ...etc) and you want to pipe them up for complex computations, `pypeup` is here at your service.
 
-With `pypipe`, you can write something like this:
+With `pypeup`, you can write something like this:
 
 ```{python}
-from pypipe import DataPipe
+from pypeup import DataPipe
 
 # Note that these two funtion all return the same data structure and their
 # first arguments are all data.
@@ -44,7 +44,7 @@ my_pipe.data
 Also, you can build up the pipe by one class declairation:
 
 ```{python}
-from pypipe import DataPipe
+from pypeup import DataPipe
 import numpy as np
 
 class MyPipe2(DataPipe):
@@ -69,7 +69,7 @@ See [Limits](https://github.com/dboyliao/pypipe#limits) for detail.
 
 ## Limits
 
-As mentioned above, there are few limits on the functions that can be used with `pypipe`:
+As mentioned above, there are few limits on the functions that can be used with `pypeup`:
 
 - All the functions' first argument must be `data`.
     - It doesn't mean you have to name it as `data`, but you have to be sure that all the functions' first argument will hold the data you want to process.
