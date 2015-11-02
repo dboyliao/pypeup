@@ -3,8 +3,11 @@
 
 ## python ##
 *.pyc
+build
+dist
+*.egg*
 
 ## develop ##
 dev
 temp
-
+temp*

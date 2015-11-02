@@ -19,4 +19,4 @@ if __name__ == "__main__":
           license = __license__,
           url = "https://github.com/dboyliao/pypipe",
           keywords = 'python pipe',
-          packages = find_packages(excludes = ['tests']))
+          packages = find_packages(exclude = ['tests']))

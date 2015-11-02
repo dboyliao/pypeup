@@ -2,8 +2,8 @@
 
 __all__ = ["DataPipe"]
 __author__ = "DboyLiao <qmalliao@gmail.com>"
-__licence__ = "MIT"
-__version__ = ("0", "1")
+__license__ = "MIT"
+__version__ = ("0", "2")
 
 from ._metaclass import PipeMeta
 from functools import wraps
