@@ -4,8 +4,6 @@ __all__ = ['_return_copy']
 from functools import wraps
 import re
 
-builtin_pattern = re.compile("__[A-Za-z]+__")
-
 def _return_self(method):
 
     @wraps(method)

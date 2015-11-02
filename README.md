@@ -4,7 +4,7 @@ This is a simple python module to help you to build a data pipe in python.
 
 ## First Glance
 
-Suppose you have a bunch of functions written before dealing with data with same structure (e.g they are all `array`, `integer`, ...etc) and you want to pipe them up for complex computations, `pypipe` is at your service.
+Suppose you have a bunch of functions dealing with data of the same structure (e.g they are all `array`, `integer`, ...etc) and you want to pipe them up for complex computations, `pypipe` is here at your service.
 
 With `pypipe`, you can write something like this:
 
@@ -12,8 +12,7 @@ With `pypipe`, you can write something like this:
 from pypipe import DataPipe
 
 # Note that these two funtion all return the same data structure and their
-# first argument are all data.
-# These are the only requirements for using pypipe.
+# first arguments are all data.
 # In this example, the data are all of type list.
 
 def fun1(data, x):
@@ -63,8 +62,20 @@ pipe2 = MyPipe2(np.array([1, 2, 3]))
 pipe2.add(3).sub(2).mul(4)
 pipe2.data
 # >>> np.array([8, 12, 16])
-
 ```
+
+There are some limits on the functions which can be applied to `pypipe`.
+See [Limits](https://github.com/dboyliao/pypipe#limits) for detail.
+
+## Limits
+
+As mentioned above, there are few limits on the functions that can be used with `pypipe`:
+
+- All the functions' first argument must be `data`.
+    - It doesn't mean you have to name it as `data`, but you have to be sure that all the functions' first argument will hold the data you want to process.
+- All the `data` must be of the same (or compatible) data structure or type.
+    - for example, they must be all `list`, `number`, `numpy.array`...etc.
+- All the function must return the data which will be passed through the pipe.
 
 ## Installation
 
