@@ -64,7 +64,7 @@ pipe2.data
 # >>> np.array([8, 12, 16])
 ```
 
-There are some limits on the functions which can be applied to `pypipe`.
+There are some limits on the functions which can be applied to `pypeup`.
 See [Limits](https://github.com/dboyliao/pypipe#limits) for detail.
 
 ## Limits
