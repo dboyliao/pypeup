@@ -37,7 +37,7 @@ my_pipe.register(fun1)      # Use register method to add any method you like
 my_pipe.register(fun2)      # for your data.
 
 my_pipe.fun1(1).fun2(3).fun2(2).fun1(3) # Pipe the function up at your wish
-my_pipe.data
+my_pipe.data                # Access the data by the `data` attribute
 # >>> [5, 6]
 ```
 
@@ -71,8 +71,11 @@ See [Limits](https://github.com/dboyliao/pypipe#limits) for detail.
 
 As mentioned above, there are few limits on the functions that can be used with `pypeup`:
 
-- All the functions' first argument must be `data`.
+- The current data can be access through `self.data`.
+    - This means that if you want to overwrite the `__init__` by yourself, make sure you have an attribute the serve as the same purpose as `data`. Note that `data` is a property with type-checking.
+- All the functions' first argument must be `data`. (But not method, see below)
     - It doesn't mean you have to name it as `data`, but you have to be sure that all the functions' first argument will hold the data you want to process.
+    - If the function is defined in a class declairation, you only need to pass all the parameters needed to work with the data which can be access through `self.data`.
 - All the `data` must be of the same (or compatible) data structure or type.
     - for example, they must be all `list`, `number`, `numpy.array`...etc.
 - All the function must return the data which will be passed through the pipe.

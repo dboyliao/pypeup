@@ -3,7 +3,7 @@
 __all__ = ["DataPipe"]
 __author__ = "DboyLiao <qmalliao@gmail.com>"
 __license__ = "MIT"
-__version__ = ("0", "5")
+__version__ = ("0", "6")
 
 from ._metaclass import PipeMeta
 from functools import wraps
@@ -13,7 +13,7 @@ class DataPipe(object):
     __metaclass__ = PipeMeta
 
     def __init__(self, data):
-        self.data = data
+        self._data = data
 
     @property
     def data(self):
@@ -21,6 +21,9 @@ class DataPipe(object):
 
     @data.setter
     def data(self, value):
+        if not isinstance(value, type(self.data)):
+            raise TypeError("The data should be of type {}: {} is given.".format(type(self.data), type(value)))
+        
         self._data = value
 
     def register(self, fun):
