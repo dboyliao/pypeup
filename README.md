@@ -82,8 +82,11 @@ As mentioned above, there are few limits on the functions that can be used with 
 
 ## Installation
 
-- run `git clone https://github.com/dboyliao/pypipe.git && cd pypipe`
-- run `python setup.py install` to install the package.
+- Install through `pip`:
+    - Just run `pip install pypeup`
+- Install from source:
+    - run `git clone https://github.com/dboyliao/pypeup.git && cd pypeup`
+    - run `python setup.py install` to install the package.
 
 ## Tests
 
