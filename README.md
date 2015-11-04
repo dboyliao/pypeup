@@ -64,6 +64,21 @@ pipe2.data
 # >>> np.array([8, 12, 16])
 ```
 
+In order to protect the data inside the pipe, any modification to the `data` which is outside of the execution context of the methods of the pipe is not allowed and an `ExecutionContextError` will be raised.
+
+```{python}
+from pypeup import DataPipe
+
+class MyPipe(DataPipe):
+
+    def addOne(self):
+        return self.data + 1
+
+pipe = MyPipe(10)
+pipe.addOne(1)     # OK.
+pipe.data = 11     # Not OK.
+```
+
 There are some limits on the functions which can be applied to `pypeup`.
 See [Limits](https://github.com/dboyliao/pypipe#limits) for detail.
 
