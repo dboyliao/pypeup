@@ -24,8 +24,7 @@ def _exec_context(method):
     def wrapped(self, *funargs, **funkwargs):
 
         self._under_execution_context = True
-        print self._under_execution_context
-
+        
         return method(self, *funargs, **funkwargs)
 
     return wrapped
