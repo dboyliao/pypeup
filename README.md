@@ -1,5 +1,7 @@
 # pypeup - Piping Up with Python
 
+[![Build Status](https://travis-ci.org/dboyliao/pypeup.svg?branch=master)](https://travis-ci.org/dboyliao/pypeup)
+
 This is a simple python module to help you to build a data pipe in python.
 
 ## First Glance
