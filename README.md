@@ -64,6 +64,26 @@ pipe2.data
 # >>> np.array([8, 12, 16])
 ```
 
+You can use private method as normal python:
+
+```{python}
+from pypeup import DataPipe
+import math
+
+class MyPipe(DataPipe):
+
+    def fun(self, x):
+        return self._magic(x)
+
+    def _magic(self, x):
+        print "Where the magic happens!"
+        return self.data + math.sin(x)
+
+pipe = MyPipe(0.)
+print pipe.fun(math.pi / 2).data
+# >>> 1.
+```
+
 In order to protect the data inside the pipe, any modification to the `data` which is outside of the execution context of the methods of the pipe is not allowed and an `ExecutionContextError` will be raised.
 
 ```{python}
@@ -90,7 +110,8 @@ As mentioned above, there are few limits on the functions that can be used with 
     - This means that if you want to overwrite the `__init__` by yourself, make sure you have an attribute the serve as the same purpose as `data`. Note that `data` is a property with type-checking.
 - All the functions' first argument must be `data`. (But not method, see below)
     - It doesn't mean you have to name it as `data`, but you have to be sure that all the functions' first argument will hold the data you want to process.
-    - If the function is defined in a class declairation, you only need to pass all the parameters needed to work with the data which can be access through `self.data`.
+    - If the function is defined as an instance method, you only need to pass all the parameters needed to work with the data which can be access through `self.data`.
+    - If the instance method is private method (method with the name start with one `_`) will work just like normal instance method.
 - All the `data` must be of the same (or compatible) data structure or type.
     - for example, they must be all `list`, `number`, `numpy.array`...etc.
 - All the function must return the data which will be passed through the pipe.

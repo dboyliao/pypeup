@@ -11,3 +11,6 @@ dist
 dev
 temp
 temp*
+
+## tests ##
+tests/reports

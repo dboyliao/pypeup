@@ -1,5 +1,6 @@
 from pypeup import DataPipe
 from pypeup.exceptions import ExecutionContextError
+import math
 
 class MyPipe(DataPipe):
 
@@ -46,6 +47,23 @@ def test_execution_context():
         pipe.data = 10
     except ExecutionContextError:
         pass
+
+class MyPipe3(DataPipe):
+
+    def fun(self, x):
+        return self._magic(x)
+
+    def _magic(self, x):
+        print "Where the magic happens!"
+        return self.data + math.sin(x)
+
+
+def test_private_method():
+    pipe = MyPipe3(0.)
+    pipe.fun(math.pi / 2)
+
+    assert pipe.data == 1, pipe.data
+
 
 try:
     import numpy as np
