@@ -1,3 +1,6 @@
 global-include README*
 graft tests
 global-exclude *.pyc
+global-exclude .DS_Store
+global-exclude .converage
+global-exclude tests/reports/*
