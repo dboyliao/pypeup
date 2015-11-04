@@ -3,7 +3,7 @@
 __all__ = ["DataPipe"]
 __author__ = "DboyLiao <qmalliao@gmail.com>"
 __license__ = "MIT"
-__version__ = ("0", "9", "1")
+__version__ = ("0", "9", "2")
 
 from ._metaclass import PipeMeta
 from functools import wraps
@@ -17,10 +17,8 @@ class DataPipe(object):
     def __new__(cls, data, *args, **kwargs):
         obj = super(DataPipe, cls).__new__(cls)
         obj._under_execution_context = False
+        obj._data = data
         return obj
-
-    def __init__(self, data, *args, **kwargs):
-        self._data = data
 
     @property
     def data(self):

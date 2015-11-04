@@ -109,7 +109,7 @@ See [Limits](https://github.com/dboyliao/pypipe#limits) for detail.
 As mentioned above, there are few limits on the functions that can be used with `pypeup`:
 
 - The current data can be access through `self.data`.
-    - This means that if you want to overwrite the `__init__` by yourself, make sure you have an attribute the serve as the same purpose as `data`. Note that `data` is a property with type-checking.
+    - `self.data` is a `property` defined in `DataPipe`, which means that if you want to overwrite it, you must be sure your implementation is OK.
 - All the functions' first argument must be `data`. (But not method, see below)
     - It doesn't mean you have to name it as `data`, but you have to be sure that all the functions' first argument will hold the data you want to process.
     - If the function is defined as an instance method, you only need to pass all the parameters needed to work with the data which can be access through `self.data`.
