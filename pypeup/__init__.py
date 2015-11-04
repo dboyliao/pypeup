@@ -7,12 +7,18 @@ __version__ = ("0", "7")
 
 from ._metaclass import PipeMeta
 from functools import wraps
+from .exceptions import ExecutionContextError
 
 class DataPipe(object):
 
     __metaclass__ = PipeMeta
 
-    def __init__(self, data):
+    def __new__(cls, data, *args, **kwargs):
+        obj = super(DataPipe, cls).__new__(cls)
+        obj.__under_execution_context = False
+        return obj
+
+    def __init__(self, data, *args, **kwargs):
         self._data = data
 
     @property
@@ -21,6 +27,9 @@ class DataPipe(object):
 
     @data.setter
     def data(self, value):
+        if not self.__under_execution_context:
+            raise ExecutionContextError("data can not be modified outside of execution of methods.")
+
         if not isinstance(value, type(self.data)):
             raise TypeError("The data should be of type {}: {} is given.".format(type(self.data), type(value)))
         

@@ -2,13 +2,12 @@
 __all__ = ['_return_self']
 
 from functools import wraps
-import re
 
 def _return_self(method):
 
     @wraps(method)
     def wrapped(self, *funargs, **funkwargs):
-
+        
         new_data = method(self, *funargs, **funkwargs)
 
         if not isinstance(new_data, type(self.data)):
@@ -18,4 +17,5 @@ def _return_self(method):
         return self
 
     return wrapped
+
         
