@@ -3,7 +3,7 @@ from ._utils import _return_self, _exec_context
 import re
 
 exclude_pattern = re.compile(r"__[A-Za-z]+__|register")
-private_pattern = re.compile(r"_[A-Za-z0-9]+")
+private_pattern = re.compile(r"_[A-Za-z0-9]+__[A-Za-z0-9]+|_[A-Za-z0-9]+_?")
 
 class PipeMeta(type):
 

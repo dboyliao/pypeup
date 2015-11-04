@@ -54,7 +54,7 @@ class MyPipe3(DataPipe):
         return self._magic(x)
 
     def _magic(self, x):
-        print "Where the magic happens!"
+        self.data += 0
         return self.data + math.sin(x)
 
 
@@ -63,6 +63,21 @@ def test_private_method():
     pipe.fun(math.pi / 2)
 
     assert pipe.data == 1, pipe.data
+
+class MyPipe4(DataPipe):
+
+    def fun(self, x):
+        return self.__magic(x)
+
+    def __magic(self, x):
+        self.data += 0
+        return self.data + x
+
+def test_double_under_line():
+    pipe = MyPipe4(3)
+    pipe.fun(1)
+
+    assert pipe.data == 4, pipe.data
 
 
 try:

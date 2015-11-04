@@ -113,7 +113,7 @@ As mentioned above, there are few limits on the functions that can be used with 
 - All the functions' first argument must be `data`. (But not method, see below)
     - It doesn't mean you have to name it as `data`, but you have to be sure that all the functions' first argument will hold the data you want to process.
     - If the function is defined as an instance method, you only need to pass all the parameters needed to work with the data which can be access through `self.data`.
-    - If the instance method is private method (method with the name start with one `_`) will work just like normal instance method.
+    - If the instance method is private method (method with the name start with `_` or `__`) will work just like normal instance method.
 - All the `data` must be of the same (or compatible) data structure or type.
     - for example, they must be all `list`, `number`, `numpy.array`...etc.
 - All the function must return the data which will be passed through the pipe.
