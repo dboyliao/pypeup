@@ -1,4 +1,5 @@
 from pypeup import DataPipe
+from pypeup.exceptions import ExecutionContextError
 
 class MyPipe(DataPipe):
 
@@ -12,6 +13,7 @@ class MyPipe(DataPipe):
 pipe = MyPipe(3)
 
 def test_pipe():
+    print dir(pipe)
 
     pipe.add(1).sub(5).add(6)
 
@@ -36,6 +38,14 @@ def test_default_value():
     pipe2.my_fun(1)
 
     assert pipe2.data == 3
+
+def test_execution_context():
+    pipe = MyPipe2(3)
+    
+    try:
+        pipe.data = 10
+    except ExecutionContextError:
+        pass
 
 try:
     import numpy as np

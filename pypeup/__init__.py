@@ -8,6 +8,7 @@ __version__ = ("0", "7")
 from ._metaclass import PipeMeta
 from functools import wraps
 from .exceptions import ExecutionContextError
+from ._utils import _exec_context
 
 class DataPipe(object):
 
@@ -15,7 +16,7 @@ class DataPipe(object):
 
     def __new__(cls, data, *args, **kwargs):
         obj = super(DataPipe, cls).__new__(cls)
-        obj.__under_execution_context = False
+        obj._under_execution_context = False
         return obj
 
     def __init__(self, data, *args, **kwargs):
@@ -27,7 +28,7 @@ class DataPipe(object):
 
     @data.setter
     def data(self, value):
-        if not self.__under_execution_context:
+        if not self._under_execution_context:
             raise ExecutionContextError("data can not be modified outside of execution of methods.")
 
         if not isinstance(value, type(self.data)):
@@ -40,6 +41,7 @@ class DataPipe(object):
         @wraps(fun)
         def wrapped(*args, **kwargs):
             
+            self._under_execution_context = True
             new_data = fun(self.data, *args, **kwargs)
             self.data = new_data
             return self
