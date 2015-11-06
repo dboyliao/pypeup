@@ -83,6 +83,7 @@ class MyPipe(DataPipe):
 
 pipe = MyPipe(0.)
 print pipe.fun(math.pi / 2).data
+# >>> Where the magic happens!
 # >>> 1.
 ```
 

@@ -4,6 +4,9 @@ test:
 install:
 	python setup.py install
 	make clean
+dist:
+	python setup.py sdist upload
+	make clean
 
 clean:
 	rm -rf dist build *.egg-info
