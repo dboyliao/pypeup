@@ -7,7 +7,7 @@ def _return_self(method):
 
     @wraps(method)
     def wrapped(self, *funargs, **funkwargs):
-        
+
         new_data = method(self, *funargs, **funkwargs)
 
         if not isinstance(new_data, type(self.data)):
@@ -24,9 +24,11 @@ def _exec_context(method):
     def wrapped(self, *funargs, **funkwargs):
 
         self._under_execution_context = True
-        
-        return method(self, *funargs, **funkwargs)
+        result = method(self, *funargs, **funkwargs)
+        self._under_execution_context = False
+
+        return result
 
     return wrapped
 
-        
+
