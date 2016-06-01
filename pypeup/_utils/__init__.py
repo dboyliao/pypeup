@@ -13,7 +13,9 @@ def _return_self(method):
         if not isinstance(new_data, type(self.data)):
             raise TypeError('All method should return velue of type {}: {} is returned.'.format(type(self.data), type(new_data)))
 
+        self._under_execution_context = True
         self.data = new_data
+        self._under_execution_context = False
         return self
 
     return wrapped
